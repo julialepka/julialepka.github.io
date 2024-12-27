@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Formulário de Nome e Data de Nascimento</title>
+</head>
+<body>
+
+<h1>Insira seu Nome e Data de Nascimento</h1>
+<p>Preencha os campos abaixo para ver suas informações personalizadas:</p>
+
+<form>
+  <label for="nome">Nome:</label><br>
+  <input type="text" id="nome" name="nome" placeholder="Digite seu nome"><br><br>
+  
+  <label for="dataNascimento">Data de Nascimento:</label><br>
+  <input type="date" id="dataNascimento" name="dataNascimento"><br><br>
+  
+  <button type="button" onclick="mostrarInformacoes()">Enviar</button>
+</form>
+
+<h2>Suas informações:</h2>
+<p id="resultado"></p>
+
+<script>
+function mostrarInformacoes() {
+    const nome = document.getElementById("nome").value;
+    const dataNascimento = document.getElementById("dataNascimento").value;
+    
+    if (nome && dataNascimento) {
+        document.getElementById("resultado").innerText = `Olá, ${nome}! Você nasceu em ${new Date(dataNascimento).toLocaleDateString('pt-BR')}.`;
+    } else {
+        document.getElementById("resultado").innerText = "Por favor, preencha todos os campos.";
+    }
+}
+</script>
+
+</body>
+</html>
